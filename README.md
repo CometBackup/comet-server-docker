@@ -27,7 +27,7 @@ services:
       - "8060:8060"
     environment:
       # Server Configuration
-      # These will be applied on first boot only if a valid cometd.cfg file is not found
+      # These will be applied on first boot
       - "COMET_LICENSE_SERIAL="
     volumes:
       - "/var/lib/cometd/:/var/lib/cometd"
