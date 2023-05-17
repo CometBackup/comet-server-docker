@@ -1,8 +1,11 @@
 # Comet Server in Docker
 
+[![@CometBackup on Twitter](https://img.shields.io/badge/twitter-%40CometBackup-blue.svg?style=flat)](https://twitter.com/CometBackup)
+[![Comet EULA](https://img.shields.io/badge/license-Comet%20EULA-yellowgreen.svg)](https://cometbackup.com/conditions)
+
 > **Important:** A Comet Server serial number is required. If you do not yet have one, please sign into your account and generate one on the [My Servers](https://account.cometbackup.com/my_servers) page.
 
-**Usage**
+## Usage
 
 Run and manage your Comet Server using Docker by running the following command, or by using the `docker-compose.yml` configuration below.
 
