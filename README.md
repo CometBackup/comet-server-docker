@@ -22,7 +22,7 @@ The following tags are available:
 With `docker run`:
 
 ```bash
-docker run \
+docker run -ti \
   -p 8060:8060 \
   -e COMET_LICENSE_SERIAL= \
   -v "/var/lib/cometd/:/var/lib/cometd" \
