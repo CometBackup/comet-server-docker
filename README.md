@@ -50,3 +50,7 @@ services:
       - "/var/lib/cometd/:/var/lib/cometd"
       - "/var/log/cometd/:/var/log/cometd"
 ```
+
+### Migrating from other Comet Server distributions
+
+The Comet Server docker container runs as an isolated user within the container (`cometd:cometd`) with UID:GID `100:101`. The stored files inside `/var/lib/cometd` and `/var/log/cometd` use an identical layout to the other available Linux packages; when migrating, you should `chmod` the files to the target UID:GID so that the container process is able to read and write to them.
