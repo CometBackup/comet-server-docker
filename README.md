@@ -46,6 +46,11 @@ services:
       # Server Configuration
       # These will be applied on first boot
       - "COMET_LICENSE_SERIAL="
+      # Alternatively, you can provide your Comet account email, and a token
+      # with the 'License::CreateLicense' permission -
+      # This will generate a new Self-Hosted server license automatically
+      # - "COMET_ACCOUNT_EMAIL="
+      # - "COMET_ACCOUNT_TOKEN="
     volumes:
       - "/var/lib/cometd/:/var/lib/cometd"
       - "/var/log/cometd/:/var/log/cometd"
