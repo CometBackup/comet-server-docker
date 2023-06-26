@@ -1,0 +1,18 @@
+---
+version: "3"
+services:
+  comet-server:
+    image: ghcr.io/cometbackup/comet-server:latest
+    restart: unless-stopped
+    ports:
+      - "8060:8060"
+    environment:
+      COMET_ACCOUNT_EMAIL: "${COMET_ACCOUNT_EMAIL}"
+      COMET_ACCOUNT_TOKEN: "${COMET_ACCOUNT_TOKEN}"
+    volumes:
+      - ./entrypoint.d:/entrypoint.d
+      - comet-data:/var/lib/cometd
+      - comet-logs:/var/lib/cometd/logs
+volumes:
+  comet-data:
+  comet-logs:
