@@ -59,3 +59,27 @@ services:
 ### Migrating from other Comet Server distributions
 
 The Comet Server docker container runs as an isolated user within the container (`cometd:cometd`) with UID:GID `100:101`. The stored files inside `/var/lib/cometd` and `/var/log/cometd` use an identical layout to the other available Linux packages; when migrating, you should `chmod` the files to the target UID:GID so that the container process is able to read and write to them.
+
+## Environment Variables
+
+The following environment variables are available:
+
+|Name|Desc|Required
+|---|---|---
+|`COMET_LICENSE_SERIAL`|A pre-generated Self-Hosted serial number|No
+|`COMET_ACCOUNT_EMAIL`|Your Comet Backup account email, used for dynamic license serial generation on first start-up|Required if `COMET_LICENSE_SERIAL` not provided
+|`COMET_ACCOUNT_TOKEN`|Your Comet Backup account API token with the `License::CreateLicense` permission, used for dynamic license serial generation on first start-up|Required if `COMET_LICENSE_SERIAL` not provided
+
+## Hooks
+
+The container manages the Comet Server service internally using a Bash script. You can hook into this script to perform actions on lifecycle events.
+
+The following hooks are available:
+
+|Hook|Runs
+|---|---
+|`cometd::hook::config_validated`|On initial server start-up, after the config has been validated and serial has been created (on first start if email/token was provided)
+|`cometd::hook::on_start`|On initial server start-up, after `config_validated`
+|`cometd::hook::on_failure`|On an unexpected server shutdown, but before service restart
+
+Example usage of hooks can be found in `examples/docker-compose-full/entrypoint.d`
