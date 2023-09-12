@@ -5,6 +5,8 @@
 
 Run and manage your self-hosted Comet Server using [Docker](https://www.docker.com/) or any OCI-compatible container runtime.
 
+View the demo video here: <https://youtu.be/iMFnx0QgYag>
+
 > **Important:** A Comet Server serial number is required. If you do not yet have one, please sign into your account and generate one on the [My Servers](https://account.cometbackup.com/my_servers) page.
 
 ## Tags
@@ -30,7 +32,9 @@ docker run -ti \
   ghcr.io/cometbackup/comet-server:latest
 ```
 
-For docker compose (`docker-compose.yml`):
+With docker compose (`docker-compose.yml`):
+
+Use the minimal yaml below, or take a look at [the examples](examples/docker-compose-full) for more configuration options.
 
 ```yaml
 version: "3"
